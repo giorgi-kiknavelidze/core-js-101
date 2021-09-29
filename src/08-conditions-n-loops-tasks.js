@@ -266,15 +266,12 @@ function reverseInteger(num) {
  */
 function isCreditCardNumber(ccn) {
   const arr = ccn.toString().split('').slice(0, -1);
-  console.log(arr);
   const checkDigit = ccn % 10;
   const getCheckDigit = (val) => {
     const newVal = val.map((x, index) => ((val.length - index) % 2 === 0 ? ((x * 2) % 9 || 9) : x));
     const sum = newVal.reduce((prev, cur) => prev + cur);
     return 10 - (sum % 10);
   };
-  console.log(getCheckDigit(arr));
-  console.log(checkDigit);
   return getCheckDigit(arr) === checkDigit;
 }
 
